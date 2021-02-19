@@ -1,0 +1,19 @@
+mysql 5.7
+cdb-0f8mzk76.cd.tencentcdb.com:10001
+
+root
+okms@123
+-------------------------------------------
+django 常用命令
+python manage.py  runserver  //运行后台服务
+python manage.py  makemigrations //数据库迁移
+python manage.py migrate //应用数据库迁移
+python manage.py createsuperuser  //创建超级管理员
+python manage.py starapp //创建应用
+django-admin.py startproject //创建项目
+--------------------------------------------
+超级管理员
+baibo/baibo@123
+zhoujh/zhoujh@123
+-------------------------------------------------
+git@github.com:zhoujiahua/okms.git
