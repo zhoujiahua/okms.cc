@@ -1,0 +1,16 @@
+{
+  "name": "okms",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "jiahua",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "test": ""
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.12.5",
+    "validator": "^13.6.0"
+  }
+}
