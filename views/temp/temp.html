@@ -1,0 +1,21 @@
+{{ extend './../layout/tp_layui.html' }}
+{{block "style"}}
+<style>
+
+</style>
+{{/block}}
+
+{{block "wrapper"}}
+<div class="layui-container">
+    <h1>Temp</h1>
+</div>
+{{/block}}
+
+{{block "script"}}
+<script>
+    layui.use(['layer'], function () {
+        var layer = layui.layer,
+            $ = layui.$;
+    })
+</script>
+{{/block}}

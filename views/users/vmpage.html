@@ -1,0 +1,113 @@
+{{ extend './layout.html' }}
+
+{{block "wrapper"}}
+<input type="hidden" name="users" value="{{ data }}">
+<div class="container">
+    <h1 id="uname">{{ title }}</h1>
+    <div id="vmBtn"></div>
+    <div id="code"></div>
+    <div id="time" style="color: rgb(255, 145, 0);"></div>
+    <div class="box"></div>
+</div>
+{{/block}}
+
+{{block "script"}}
+<script>
+    $(function () {
+        var users = $('[name="users"]').val(),
+            timer = null;
+
+        if (users) {
+            users = JSON.parse(users);
+            // init data
+            getUserData(users);
+
+            // time data
+            timer = setInterval(function () {
+                if (users) {
+                    getUserData(users);
+                } else {
+                    clearInterval(timer);
+                    window.location.href = '/login'
+                }
+            }, 5000);
+        }
+
+        function getUserData(data) {
+            $.ajax({
+                type: "GET",
+                url: "/api/init",
+                data: data,
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (!res.code) {
+                        var d = res.data,
+                            vmdata = JSON.stringify(d);
+                        if (!localStorage.vmdata || (localStorage.vmdata != vmdata)) {
+                            localStorage.setItem('vmdata', vmdata);
+                        }
+                        setVMState();
+                    }
+                }
+            });
+        }
+
+        // Set VM state
+        function setVMState() {
+            var vmdata = localStorage.vmdata;
+            if (vmdata) {
+                vmdata = JSON.parse(vmdata);
+                setVMContent(vmdata);
+                $('#uname').text(vmdata.username);
+                $('#code').text(JSON.stringify(vmdata));
+                $('#time').text(new Date().getTime());
+            } else {
+                $('#vmBtn').text("error");
+            }
+        }
+
+        // set VM Content
+        function setVMContent(data) {
+            var vmHtml = setVMHTML(data);
+            $('#vmBtn').html(vmHtml);
+            $("#instart").on('click', function () {
+                console.log($(this).text());
+                clearInterval(timer);
+                $.getJSON("/api/start", data, function (res) {
+                    console.log(res);
+                    if (!res.code) {
+                        window.location.reload();
+                    }
+                });
+            })
+            $("#instop").on('click', function () {
+                console.log($(this).text());
+                clearInterval(timer);
+                $.getJSON("/api/stop", data, function (res) {
+                    console.log(res);
+                    if (!res.code) {
+                        window.location.reload();
+                    }
+                });
+            })
+            $("#inview").on('click', function () {
+                console.log($(this).text());
+            })
+        }
+
+        // Set VM HTML
+        function setVMHTML(data) {
+            var html = '';
+            if (data.VMReq == 'Yes') {
+                html += `<button type="button" id="instop"> VM STOP </button>
+                    <button type="button" id="inview"> VM VIEW </button>`;
+            }
+            if (data.VMReq == 'No') {
+                html += `<button type="button" id="instart"> VM START </button>`;
+            }
+            return html;
+        }
+    })
+</script>
+{{/block}}

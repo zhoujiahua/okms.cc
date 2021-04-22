@@ -1,0 +1,67 @@
+{{ extend './layout/tp_base.html' }}
+{{block "style"}}
+<style>
+
+</style>
+{{/block}}
+
+{{block "wrapper"}}
+<div class="container">
+    <br>
+    <div class="card">
+        <div class="card-header">
+            Daily Task API
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">API introduction</h5>
+            <p class="card-text">
+                Current project builds technology stack NodeJS, Express, Cheerio, Auth0, jQuery, Bootstrap.
+            </p>
+            <a href="/main/lists" class="btn btn-primary" target="_blank">Go API List</a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">CRAWL PAGE</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/main/advantest" target="_blank">Advantest Page</a></li>
+                        <li class="list-group-item"><a href="/main/jwt_advantest" target="_blank">Advantest JWT Page</a>
+                        </li>
+                        <li class="list-group-item"><a href="/pdf/iframe" target="_blank">PDF Iframe</a></li>
+                        <li class="list-group-item"><a href="/api/pdf/check" target="_blank">PDF Check API</a></li>
+                        <li class="list-group-item"><a href="/api/pdf/mockup" target="_blank">PDF Mockup API</a></li>
+                        <li class="list-group-item"><a href="/pdf/Mockup" target="_blank">PDF Mockup Page</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">API PAGE</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="/api/common/crawl" target="_blank">Advantest API</a></li>
+                        <li class="list-group-item"><a href="/api/common/jwt_crawl" target="_blank">Advantest JWT
+                                API</a></li>
+                        <li class="list-group-item"><a href="/api/pdf/checks" target="_blank"
+                                rel="noopener noreferrer">PDF Checks All Infomation</a> </li>
+                        <li class="list-group-item"><a href="/api/pdf/jwt/check" target="_blank">PDF Check JWT API</a>
+                        </li>
+                        <li class="list-group-item"><a href="/api/pdf/jwt/mockup" target="_blank">PDF Mockup JWT
+                                API</a>
+                        </li>
+                        <li class="list-group-item"><a href="/pdf/mockup" target="_blank">PDF Mockup JWT
+                                Page</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{/block}}
+
+{{block "script"}}{{/block}}

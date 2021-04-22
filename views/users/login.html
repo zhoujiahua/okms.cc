@@ -1,0 +1,40 @@
+{{ extend './layout.html' }}
+
+{{block "wrapper"}}
+<div class="container">
+    <div class="form">
+        <input type="text" name="userid" placeholder="id">
+        <input type="text" name="username" placeholder="name">
+        <button type="button" id="subBtn">Login</button>
+    </div>
+</div>
+{{/block}}
+
+{{block "script"}}
+<script>
+    $(function () {
+        $('#subBtn').on('click', function () {
+            var userid = $('[name="userid"]').val(),
+                username = $('[name="username"]').val(),
+                token = 'haohaoxuexi';
+            $.ajax({
+                type: "POST",
+                url: "/api/login",
+                data: {
+                    userid,
+                    username,
+                    token
+                },
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (!res.code) {
+                        localStorage.setItem('users', JSON.stringify(res.data));
+                        window.location.href = '/';
+                    }
+                }
+            });
+        })
+    })
+</script>
+{{/block}}

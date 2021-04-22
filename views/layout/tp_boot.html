@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="renderer" content="webkit">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/libaray/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    {{block "style"}}{{/block}}
+</head>
+
+<body>
+    <div class="wrapper">{{block "wrapper"}}{{/block}}</div>
+
+    <!-- js -->
+    <script src="/libaray/jquery.min.js"></script>
+    <script src="/libaray/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/js/layout.js"></script>
+    {{block "script"}}{{/block}}
+</body>
+
+</html>

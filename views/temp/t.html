@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script>
+      $(function () {
+        $.ajax({
+          type: "POST",
+          url: "http://surveyback.ehuatek.com/jeecg-boot/sys/login",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          data: JSON.stringify({
+            username: "17629269055",
+            password: "q1roAu3Gsuo9rqWfTfK5Vg==",
+          }),
+          dataType: "josn",
+          success: function (res) {
+              debugger
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
