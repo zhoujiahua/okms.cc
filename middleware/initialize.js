@@ -3,13 +3,13 @@ const passportJWT = $re('/utils/passport.js');
 const session = require('express-session');
 const passport = require('passport');
 const morgan = require("morgan");
-const helmet = require("helmet");
+// const helmet = require("helmet");
 const cors = require('cors');
 
 module.exports = (app) => {
     app.use(morgan("dev"));
     app.use(cookieParser());
-    app.use(helmet());
+    // app.use(helmet());
     require('colors');
     app.use(cors());
 

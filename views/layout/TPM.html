@@ -8,17 +8,21 @@
     <meta http-equiv="Cache-Control" content="no-siteapp" />
     <meta name="renderer" content="webkit">
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="/libaray/layui/css/layui.css">
-    <link rel="stylesheet" href="/css/layout.css">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/library/layui/css/layui.css">
+    <link rel="stylesheet" href="/style/layout.css">
     {{block "style"}}{{/block}}
 </head>
 
 <body>
-    <div class="wrapper">{{block "wrapper"}}{{/block}}</div>
+    <div class="wrapper">
+        {{block "wrapper"}}{{/block}}
+    </div>
 
-    <!-- js -->
-    <script src="/libaray/layui/layui.js"></script>
-    <script src="/js/layout.js"></script>
+    <!-- Script -->
+    <script src="/library/layui/layui.js"></script>
+    <script src="/script/layout.js"></script>
     {{block "script"}}{{/block}}
 </body>
 

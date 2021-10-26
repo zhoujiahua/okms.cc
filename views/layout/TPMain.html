@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="renderer" content="webkit">
+  <title>{{ title }}</title>
+
+  <!-- Style -->
+  <link rel="stylesheet" href="/library/reset/reset.css">
+  <link rel="stylesheet" href="/library/layui/css/layui.css">
+  <link rel="stylesheet" href="/main/style/layout.css">
+  {{block "style"}}{{/block}}
+  <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+  <!--[if lt IE 9]>
+    <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+    <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="header">
+      <div class="toolbar layui-bg-black">
+        <div class="layui-container">
+          <div class="layui-row">
+            <div class="layui-col-md4">
+              <h1 class="logo">
+                <a href="/"><img src="/main/images/logo.png" alt="logo"></a>
+              </h1>
+            </div>
+            <div class="layui-hide-sm layui-hide-xs layui-show-md-block layui-col-md8">
+              <div class="menu">
+                <ul class="layui-nav" lay-filter="navList">
+                  <li class="layui-nav-item layui-this"><a href="javascript:;">首页</a></li>
+                  <li class="layui-nav-item"><a href="javascript:;">产品服务</a></li>
+                  <li class="layui-nav-item">
+                    <a href="javascript:;">客户案例</a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="javascript:;">解决方案</a></dd>
+                      <dd><a href="javascript:;">移动模块</a></dd>
+                      <dd><a href="javascript:;">电商平台</a></dd>
+                    </dl>
+                  </li>
+                  <li class="layui-nav-item"><a href="javascript:;">会员中心</a></li>
+                  <li class="layui-nav-item"><a href="javascript:;">关于我们</a></li>
+                  <li class="layui-nav-item"><a href="javascript:;">联系我们</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+      {{block "main"}}{{/block}}
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="foot layui-bg-black">
+        <div class="desc">
+          <div class="layui-container">
+            <div class="layui-row">
+              <div class="layui-col-md6">
+                <div class="text">
+                  <h3>上海ADVANTEST测试技术有限公司</h3>
+                  <dl class="layui-elip">
+                    <dd>Q&nbsp;Q：1151710686（同微信）</dd>
+                    <dd>电话：021-56020808</dd>
+                    <dd>传真：021-56021323</dd>
+                    <dd>邮编：201906</dd>
+                    <dd>地址：中国上海市沪太路4361号8号楼(呼叫中心产业基地) </dd>
+                  </dl>
+                </div>
+              </div>
+              <div class="layui-col-md6">
+                <ul class="list">
+                  <li>
+                    <h5>公众号</h5>
+                    <img src="/main/images/gzh.jpg" alt="公众号">
+                  </li>
+                  <li>
+                    <h5>小程序</h5>
+                    <img src="/main/images/xcx.jpg" alt="小程序">
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <div class="layui-container">
+            <div class="text layui-elip">
+              <span>©2021 ADVANTEST.COM</span>
+              <a href="https://beian.miit.gov.cn/">沪ICP备12002689号</a>
+              <a href="http://www.beian.miit.gov.cn/">沪公网安备31011302003695号</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="/library/layui/layui.js"></script>
+  <script src="/main/script/layout.js"></script>
+  {{block "script"}}{{/block}}
+  <script>
+    layui.use('element', function () {
+      var element = layui.element;
+    });
+  </script>
+</body>
+
+</html>

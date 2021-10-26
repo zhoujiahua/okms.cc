@@ -1,0 +1,95 @@
+{{ extend './../layout/TPMain.html' }}
+{{block "style"}}
+<style>
+
+</style>
+{{/block}}
+
+{{block "wrapper"}}
+<div class="layui-container">
+    <fieldset class="layui-elem-field layui-field-title" style="margin-top: 20px;">
+        <legend>OKMS</legend>
+    </fieldset>
+    <div style="padding: 20px; background-color: #F2F2F2;">
+        <div class="layui-row layui-col-space15">
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-header"><strong>Introduction</strong></div>
+                    <div class="layui-card-body">
+                        <p>This project is built by NodeJS, Express, MongoDB and Layui.</p>
+                        <div id="ratea" class="rates"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md6">
+                <div class="layui-card">
+                    <div class="layui-card-header"><strong>Feature</strong></div>
+                    <div class="layui-card-body">
+                        <p>Make tasks easier, more efficient and faster.</p>
+                        <div id="rateb" class="rates"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layui-col-md12">
+                <div class="layui-card">
+                    <div class="layui-card-header"><strong>Vision</strong></div>
+                    <div class="layui-card-body">
+                        <p>Never put off till tomorrow what may be done today.</p>
+                        <div id="ratec" class="rates"></div>
+                        <button type="button" class="layui-btn layui-btn-xs layui-btn-normal" id="login">Let's get
+                            started</button>
+                        <button type="button" class="layui-btn layui-btn-xs layui-btn-danger" id="register">Let's start
+                            registering</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{{/block}}
+
+{{block "script"}}
+<script>
+    layui.use(['layer', 'rate'], function () {
+        var layer = layui.layer,
+            rate = layui.rate,
+            $ = layui.$;
+
+        var rates = [{
+                id: 1,
+                elem: '#ratea',
+                value: 4.5,
+                half: true,
+                theme: '#FE0000'
+            },
+            {
+                id: 2,
+                elem: '#rateb',
+                value: 4.5,
+                half: true,
+                theme: '#FE0000'
+            },
+            {
+                id: 3,
+                elem: '#ratec',
+                value: 4.5,
+                half: true,
+                theme: '#FE0000'
+            }
+        ];
+        $.each(rates, function (k, v) {
+            rate.render(v);
+        })
+
+        $('#login').on('click', function () {
+            return window.location.href = '/htai';
+        })
+
+        $('#register').on('click', function () {
+            return layer.msg('Hi, Welcome register daily task...');
+        })
+
+    })
+</script>
+{{/block}}
